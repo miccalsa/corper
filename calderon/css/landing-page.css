@@ -164,3 +164,88 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+
+/*  contact us section */
+
+.contact-us {
+    font-family: 'PT Serif', serif;
+    padding: 50px 0;
+}
+
+.contact-map{
+    height: 400px;
+    margin-top: 130px;
+    margin-bottom: 18px;
+    background: gray;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.header {
+    font-family: 'Roboto Slab', serif;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: capitalize;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.text-muted {
+    font-size: 13px;
+}
+
+.profile-social {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 18px;
+}
+.profile-social > li {
+    margin-bottom: 5px;
+}
+.profile-social > li:last-child {
+    margin-bottom: 0;
+}
+.profile-social > li > a {
+    text-align: left;
+}
+.profile-social > li .fa-pinterest-square {
+    color: #dd4b39;
+}
+.profile-social > li .fa-facebook-square {
+    color: #3b5998;
+}
+.contact__info {
+    margin-bottom: 15px;
+}
+.contact-info__icon {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    background: #333333;
+    color: white;
+}
+.contact-info__icon.contact-info__icon_small {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+.contact-info__content {
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'Roboto Slab', serif;
+}
+@media (max-width: 767px) {
+    .contact-info__icon {
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        font-size: 16px;
+    }
+}
