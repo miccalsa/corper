@@ -249,3 +249,9 @@ p.copyright {
         font-size: 16px;
     }
 }
+.about-us {
+    font-family: 'PT Serif', serif;
+    margin: 150px;
+    font-size: 13px;
+    color: #333;
+}
