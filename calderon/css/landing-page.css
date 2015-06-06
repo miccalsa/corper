@@ -300,3 +300,9 @@ p.copyright {
 .product-list__title > a:focus {
     color: #ff5722;
 }
+
+.photo-row img {
+    margin: 1.875rem 0 0 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
