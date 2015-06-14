@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<!-- Camera is a Pixedelic free jQuery slideshow | Manuel Masia (designer and developer) -->
+<html>
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,144 +9,147 @@
     <meta name="author" content="Cortinas Calderon">
 
     <title>Cortinas Calderon</title>
+    <link rel='stylesheet' id='camera-css'  href='css/camera.css' type='text/css' media='all'>
+    <style>
+        html,body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            color: #09f;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        #back_to_camera {
+            background: rgba(255,255,255,.9);
+            clear: both;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .fluid_container {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 0;
+        }
+        #gallery {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            margin-bottom: 0!important;
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+        .camera_bar {
+            z-index: 2;
+        }
+        .camera_thumbs {
+            margin-top: -100px;
+            position: relative;
+            z-index: 1;
+        }
+        .camera_thumbs_cont {
+            border-radius: 0;
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+        }
+        .camera_overlayer {
+            opacity: .1;
+        }
+    </style>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--///////////////////////////////////////////////////////////////////////////////////////////////////
+    //
+    //		Scripts
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////-->
 
-    <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
-    <link href="css/camera.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html" style="height: 130px;">
-                    <img src="img/logo.png" alt="Cortinas Calderon" style="width: 125px;" />
-                </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top: 35px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#">Galeria</a>
-                    </li>
-                    <li>
-                        <a href="productos.html">Productos</a>
-                    </li>
-                    <li>
-                        <a href="acerca.html">Sobre Nosotros</a>
-                    </li>
-                    <li>
-                        <a href="contacto.html">Contactenos</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-
-    <div class="container about-us">
-        <div class="fluid_container">
-            <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
-                <div data-thumb="img/galeria_cortinas/thumbs/bridge.jpg" data-src="img/galeria_cortinas/cortina1.jpg">
-                </div>
-                <div data-thumb="img/galeria_cortinas/thumbs/leaf.jpg" data-src="img/galeria_cortinas/cortina2.jpg">
-                </div>
-                <div data-thumb="img/galeria_cortinas/thumbs/road.jpg" data-src="img/galeria_cortinas/cortina3.jpg">
-                </div>
-                <div data-thumb="img/galeria_cortinas/thumbs/sea.jpg" data-src="img/galeria_cortinas/cortina4.jpg">
-                </div>
-                <div data-thumb="img/galeria_cortinas/thumbs/shelter.jpg" data-src="img/galeria_cortinas/cortina5.jpg">
-                </div>
-                <div data-thumb="img/galeria_cortinas/thumbs/tree.jpg" data-src="img/galeria_cortinas/cortina6.jpg">
-                </div>
-            </div><!-- #camera_wrap_1 -->
-        </div><!-- .fluid_container -->
-    </div>
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="index.html">Inicio</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#">Galeria</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="productos.html">Productos</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="acerca.html">Sobre Nosotros</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="contacto.html">Contactenos</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Cortinas Calderon 2015. Todos los derechos reservados</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Custom Scripts -->
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/camera.min.js"></script>
+    <script type='text/javascript' src='js/camera/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.mobile.customized.min.js'></script>
+    <script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
+    <script type='text/javascript' src='js/camera.min.js'></script>
 
     <script>
         jQuery(function(){
 
-            jQuery('#camera_wrap_1').camera({
-                loader: 'pie',
+            jQuery('#gallery').camera({
+                height: 'auto',
+                loader: 'bar',
                 pagination: false,
-                thumbnails: true,
-                overlayer: true,
+                thumbnails: false,
+                hover: false,
+                opacityOnGrid: false,
+                imagePath: 'img/gallery',
+                time: 5000,
                 portrait: true
             });
 
         });
     </script>
 
-</body>
+</head>
+<body>
+<div id="back_to_camera">
+    <a href="index.html">&larr; Salir de Galeria</a>
+</div><!-- #back_to_camera -->
 
+<div class="fluid_container">
+    <div class="camera_wrap camera_emboss pattern_1" id="gallery">
+        <div data-thumb="img/gallery/thumb/1.jpg" data-src="img/gallery/1.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/2.jpg" data-src="img/gallery/2.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/3.jpg" data-src="img/gallery/3.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/4.jpg" data-src="img/gallery/4.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/5.jpg" data-src="img/gallery/5.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/6.jpg" data-src="img/gallery/6.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/7.jpg" data-src="img/gallery/7.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/8.jpg" data-src="img/gallery/8.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/9.jpg" data-src="img/gallery/9.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/10.jpg" data-src="img/gallery/10.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/11.jpg" data-src="img/gallery/11.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/12.jpg" data-src="img/gallery/12.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/13.jpg" data-src="img/gallery/13.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/14.jpg" data-src="img/gallery/14.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/15.jpg" data-src="img/gallery/15.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/16.jpg" data-src="img/gallery/16.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/17.jpg" data-src="img/gallery/17.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/18.jpg" data-src="img/gallery/18.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/19.jpg" data-src="img/gallery/19.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/20.jpg" data-src="img/gallery/20.jpg">
+        </div>
+        <div data-thumb="img/gallery/thumb/21.jpg" data-src="img/gallery/21.jpg">
+        </div>
+    </div><!-- #camera_wrap_3 -->
+
+</div><!-- .fluid_container -->
+
+</body>
 </html>
