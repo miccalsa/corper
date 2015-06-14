@@ -1,7 +1,11 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+
 ini_set('display_errors',1);
 error_reporting(E_ALL);
+
 
 sendQuery();
 
@@ -38,7 +42,7 @@ function sendQuery(){
     </table>
     ";
 
-    cors();
+    //cors();
     $output["response"] = $mail("info@cortinascalderon.net", "Consulta Cortinas Calderon", $message)
     header("Content-type: application/json");
     json_encode($output);

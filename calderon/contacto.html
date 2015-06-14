@@ -108,7 +108,7 @@
                             <textarea name="message" class="form-control" rows="6" id="message" placeholder="Ingrese su consulta"></textarea>
                             <span class="help-block"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary">Contactenos</button>
+                        <button type="button" class="btn btn-primary">Contactenos</button>
                     </form>
                 </div>
 
@@ -205,7 +205,41 @@
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
     <script>
+        $(document).ready(function(){
+            $('button[type=button]').unbind('click').click(function(){
+                var params = { name : $('#name').val(), phone: $('#phone').val(),
+                    email: $('#email').val(), message: $('#message').val() };
 
+
+                var contentType ="application/x-www-form-urlencoded; charset=utf-8";
+
+                if(window.XDomainRequest)
+                    contentType = "text/plain";
+
+                    $.ajax({
+                        url:"http://kapsites.com/mike/corper_contact.php",
+                        data:"name=" + params.name + "&email=" + params.email +
+                                "&phone=" + params.phone + "&message=" + params.message,
+                        type:"POST",
+                        dataType:"json",
+                        contentType:contentType,
+                        success:function(data)
+                        {
+                            alert("Data from Server"+JSON.stringify(data));
+                        },
+                        error:function(jqXHR,textStatus,errorThrown)
+                        {
+                            alert("You can not send Cross Domain AJAX requests: "+errorThrown);
+                        }
+                    });
+
+
+
+                /*$.post( "http://kapsites.com/mike/corper_contact.php", params, function(data){
+                    console.log(data);
+                } );*/
+            });
+        });
     </script>
 
 </body>
