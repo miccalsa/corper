@@ -60,6 +60,7 @@ h6 {
 @media(max-width:767px) {
     .intro-message {
         padding-bottom: 15%;
+        margin-top: 150px;
     }
 
     .intro-message > h1 {
@@ -251,7 +252,7 @@ p.copyright {
 }
 .about-us {
     font-family: 'PT Serif', serif;
-    margin: 150px;
+    margin-top: 150px;
     font-size: 13px;
     color: #333;
 }
