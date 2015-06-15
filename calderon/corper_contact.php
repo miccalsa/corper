@@ -1,72 +1,57 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Max-Age: 86400');    // cache for 1 day
+}
 
-ini_set('display_errors',1);
-error_reporting(E_ALL);
+//Access-Control headers are received during OPTIONS requests
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+        header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+
+    exit(0);
+}
 
 sendQuery();
 
 function sendQuery(){
 
-    $name = filter_input(INPUT_POST, "name");
-    $phone = filter_input(INPUT_POST, "phone");
-    $address = filter_input(INPUT_POST, "address");
-    $question = filter_input(INPUT_POST, "question");
+    $data = json_decode(file_get_contents("php://input"), true);
 
-    $message = "
+    $body = "
     <table>
 
     <tr>
     <td>Nombre:</td>
-    <td>$name</td>
+    <td>" . $data["name"] . "</td>
     </tr>
 
     <tr>
     <td>Telefono:</td>
-    <td>$phone</td>
+    <td>" . $data["phone"] . "</td>
     </tr>
 
     <tr>
     <td>Direccion:</td>
-    <td>$address</td>
+    <td>" . $data["email"] ."</td>
     </tr>
 
     <tr>
-    <td>Consulta</td>
-    <td>$query;</td>
+    <td>Consulta:</td>
+    <td>" . $data["message"] . "</td>
     </tr>
 
     </table>
     ";
 
-    //cors();
-    $output["response"] = $mail("info@cortinascalderon.net", "Consulta Cortinas Calderon", $message)
+    $output["response"] = mail("miccalsa@gmail.com", "Consulta Cortinas Calderon", $body, "Content-Type: text/html; charset=ISO-8859-1\r\n");
     header("Content-type: application/json");
-    json_encode($output);
+    return json_encode($output);
 
-}
-
-function cors() {
-
-    // Allow from any origin
-    if (isset($_SERVER['HTTP_ORIGIN'])) {
-        header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-        header('Access-Control-Allow-Credentials: true');
-        header('Access-Control-Max-Age: 86400');    // cache for 1 day
-    }
-
-    // Access-Control headers are received during OPTIONS requests
-    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-
-        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-
-        if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-            header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
-
-        exit(0);
-    }
 }

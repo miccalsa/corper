@@ -77,6 +77,9 @@
 
     <div>
         <div class="container contact-us">
+            <div id="responseMsg" class="alert alert-success" style="display: none;">
+                Muchas gracias por contactarnos. Pronto nos estaremos comunicando con usted.
+            </div>
             <div class="row">
                 <div class="col-sm-8">
                     <h3 class="header">Contacto</h3>
@@ -108,7 +111,7 @@
                             <textarea name="message" class="form-control" rows="6" id="message" placeholder="Ingrese su consulta"></textarea>
                             <span class="help-block"></span>
                         </div>
-                        <button type="button" class="btn btn-primary">Contactenos</button>
+                        <button id="sendQuery" type="button" class="btn btn-primary">Contactenos</button>
                     </form>
                 </div>
 
@@ -206,39 +209,26 @@
     </script>
     <script>
         $(document).ready(function(){
-            $('button[type=button]').unbind('click').click(function(){
+            $('#sendQuery').unbind('click').click(function(){
+                $.when(postCORS()).done(function(data){});
+                $('#responseMsg').show();
+            });
+
+            function postCORS(){
                 var params = { name : $('#name').val(), phone: $('#phone').val(),
                     email: $('#email').val(), message: $('#message').val() };
 
-
-                var contentType ="application/x-www-form-urlencoded; charset=utf-8";
-
-                if(window.XDomainRequest)
-                    contentType = "text/plain";
-
-                    $.ajax({
-                        url:"http://kapsites.com/mike/corper_contact.php",
-                        data:"name=" + params.name + "&email=" + params.email +
-                                "&phone=" + params.phone + "&message=" + params.message,
-                        type:"POST",
-                        dataType:"json",
-                        contentType:contentType,
-                        success:function(data)
-                        {
-                            alert("Data from Server"+JSON.stringify(data));
-                        },
-                        error:function(jqXHR,textStatus,errorThrown)
-                        {
-                            alert("You can not send Cross Domain AJAX requests: "+errorThrown);
-                        }
-                    });
-
-
-
-                /*$.post( "http://kapsites.com/mike/corper_contact.php", params, function(data){
-                    console.log(data);
-                } );*/
-            });
+                return $.ajax({
+                    type: "POST",
+                    url: "http://www.cortinasyserviciosrojas.com/corper_contact.php",
+                    data: JSON.stringify(params),
+                    dataType: "json",
+                    contentType: "application/json",
+                    crossDomain: true
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.log("You can not send Cross Domain AJAX requests: " + errorThrown);
+                });
+            }
         });
     </script>
 
