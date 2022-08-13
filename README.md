@@ -1,2 +1,0 @@
-# corper
-personal site
