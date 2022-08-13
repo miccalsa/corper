@@ -4,6 +4,11 @@ const animatedComponents = {
   image: "flyLeftAnimation",
   "image-2": "flyRightAnimation",
   "image-3": "flyLeftAnimation",
+  "small-margin": "flyUpAnimation",
+  "data-wrapper": "flyUpAnimation",
+  "left-grid": "flyUpAnimation",
+  "contact-form": "zoomAnimation",
+  "collection-list": "zoomAnimation",
 };
 
 const classKeys = Object.keys(animatedComponents);
@@ -21,6 +26,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.addEventListener("DOMContentLoaded", function () {
   classKeys.forEach((key) => {
-    observer.observe(document.querySelector(`.${key}`));
+    document.querySelectorAll(`.${key}`).forEach((e) => observer.observe(e));
   });
 });
