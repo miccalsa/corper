@@ -56,7 +56,8 @@
     <title>Cortinas Calderón - Elegancia y Calidad</title>
   </head>
   <body>
-    <nav id="home" class="navigation">
+    <!-- NAVIGATION -->
+    <nav class="navigation">
       <div class="navigation-container">
         <a href="#" class="logo-container w-nav-brand">
           <img src="./img/logo.png" alt="Cortinas Calderón" />
@@ -105,23 +106,45 @@
         </div>
       </div>
     </nav>
+    <!-- HERO -->
+    <!-- <section id="home" class="hero-section">
+      <div class="hero-content-wrap">
+        <div class="container">
+          <div class="hero-content-area">
+            <h1 class="hero-wrap-title">Elegancia y Calidad<br /></h1>
+            <p class="hero-wrap-description">
+              Nuestros productos le garantizan realzar la belleza de sus
+              espacios con productos y servicios de calidad. Contamos con un
+              amplio catalogo de soluciones en diseños y decoración.
+            </p>
+            <a href="#gallery" class="button-primary hero-btn">
+              <p>Ver Galeria</p>
+              <div class="button-line"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section> -->
     <section id="home" class="hero-section">
-      <div class="hero-wrapper">
-        <div class="max-width-wrapper">
-          <h1 class="hero-h1">Elegancia y Calidad</h1>
-          <h4 class="hero-h4">
+      <video class="video-desktop" autoplay muted loop id="myVideo">
+        <source src="/img/landing/cover_w.MP4" type="video/mp4" />
+      </video>
+      <div class="hero-content-area">
+        <div class="hero-block">
+          <h1 class="hero-wrap-title">Elegancia y Calidad<br /></h1>
+          <p class="hero-wrap-description">
             Nuestros productos le garantizan realzar la belleza de sus espacios
             con productos y servicios de calidad. Contamos con un amplio
             catalogo de soluciones en diseños y decoración.
-          </h4>
-          <a href="#gallery" class="button-primary">
-            <p class="hero-h5">Ver Galeria</p>
+          </p>
+          <a href="#gallery" class="button-primary hero-btn">
+            <p>Ver Galeria</p>
             <div class="button-line"></div>
           </a>
         </div>
       </div>
-      <div class="hero-image"></div>
     </section>
+    <!-- ABOUT -->
     <section id="about" class="content-section">
       <div class="image"></div>
       <div class="content-wrapper">
@@ -161,6 +184,7 @@
         </div>
       </div>
     </section>
+    <!-- SERVICES -->
     <section id="services" class="content-section">
       <div class="content-wrapper">
         <div class="left-wrapper">
@@ -201,6 +225,7 @@
       </div>
       <div class="image-2"></div>
     </section>
+    <!-- GALLERY -->
     <section id="gallery" class="content-section">
       <div class="collection-wrapper">
         <h2 class="h2">Galeria</h2>
@@ -250,6 +275,29 @@
                 </div>
               </a>
             </div>
+            <div class="collection-item-wrapper">
+              <img
+                loading="lazy"
+                src="/img/landing/cortina_persiana.jpg"
+                alt="Cortina con Persiana"
+                sizes="100vw"
+                srcset="
+                  /img/landing/cortina_persiana.jpg  500w,
+                  /img/landing/cortina_persiana.jpg  800w,
+                  /img/landing/cortina_persiana.jpg 1080w,
+                  /img/landing/cortina_persiana.jpg 1600w,
+                  /img/landing/cortina_persiana.jpg 1920w
+                "
+                class="collection-image"
+              />
+              <div class="background-card" style="opacity: 0.4"></div>
+              <a href="/cortina_persiana.html" class="content-card-wrapper">
+                <h3 class="h3">Cortina con Persiana</h3>
+                <div class="button-secondary">
+                  <p class="h5">VER</p>
+                </div>
+              </a>
+            </div>
             <div role="listitem" class="collection-item-wrapper">
               <img
                 loading="lazy"
@@ -291,10 +339,31 @@
                 </div>
               </a>
             </div>
+            <div class="collection-item-wrapper">
+              <img
+                loading="lazy"
+                src="/img/landing/hoteles.jpg"
+                alt="Hoteles"
+                sizes="100vw"
+                srcset="
+                  /img/landing/hoteles.jpg 1080w,
+                  /img/landing/hoteles.jpg 1200w
+                "
+                class="collection-image"
+              />
+              <div class="background-card" style="opacity: 0.4"></div>
+              <a href="/hoteles.html" class="content-card-wrapper">
+                <h3 class="h3">Hoteles</h3>
+                <div class="button-secondary">
+                  <p class="h5">VER</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- CONTACT -->
     <section id="contact" class="content-section">
       <div class="contact-wrapper">
         <div class="image-3"></div>
@@ -304,9 +373,9 @@
           <div class="form-block">
             <form
               id="contact-form"
-              name="email-form"
+              name="contact-form"
               data-name="Email Form"
-              method="get"
+              method="post"
               class="form"
               aria-label="Email Form"
             >
@@ -344,12 +413,12 @@
               <textarea
                 placeholder="Su mensaje ..."
                 maxlength="5000"
-                id="field"
-                name="field"
+                id="message"
+                name="message"
                 data-name="Field"
                 class="input-field message"
               ></textarea>
-              <a href="#" class="button-primary form">
+              <a href="#" id="submit" class="button-primary form">
                 <p class="h5">Enviar</p>
               </a>
             </form>
@@ -357,15 +426,30 @@
               class="success-message form-done"
               tabindex="-1"
               aria-label="Email Form success"
+              id="success"
             >
-              <div class="h5">
+              <div class="submit-result-text">
                 Gracias! Nos pondremos en contacto tan pronto sea posible.
+              </div>
+            </div>
+            <div
+              class="error-message form-fail"
+              tabindex="-1"
+              role="region"
+              aria-label="Email Form failure"
+              id="fail"
+            >
+              <div class="submit-result-text">
+                Lo sentimos! Error de envio del formulario.
               </div>
             </div>
           </div>
         </div>
       </div>
+      <script src="script/message.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </section>
+    <!-- FOOTER -->
     <footer class="footer-back-home">
       <div class="footer-wrapper">
         <div class="footer-top">
