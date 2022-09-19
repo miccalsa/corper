@@ -28,4 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
   classKeys.forEach((key) => {
     document.querySelectorAll(`.${key}`).forEach((e) => observer.observe(e));
   });
+
+  document.querySelector(".menu-button").addEventListener("click", function () {
+    const x = document.querySelector(".nav-menu");
+    if (x.style.display === "flex") x.style.display = "none";
+    else x.style.display = "flex";
+  });
 });
